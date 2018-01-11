@@ -1,0 +1,22 @@
+Package: monit1000
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: c(person(given = "Shinya", family = "Uryu", 
+                                            email = "suika1127@gmail.com", 
+                                            role  = c("aut", "cre"),
+                                            comment = c(ORCID = "0000-0002-0493-6186"))
+                                            )
+Description: What the package does (one paragraph).
+Depends: R (>= 3.4.3)
+Suggests:
+  devtools,
+  dplyr,
+  jpndistrict,
+  readr,
+  rlang,
+  rvest,
+  sf
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
