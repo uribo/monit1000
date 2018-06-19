@@ -1,11 +1,10 @@
 ####################################
 # サイトの位置
 ####################################
-library(rvest)
-library(dplyr)
-library(sf)
-
 if (file.exists("data/monit1000_sites.rda") == FALSE) {
+  library(rvest)
+  library(dplyr)
+  library(sf)
 
   monit1000_sites <-
     read_html("http://www.biodic.go.jp/moni1000/list.html") %>%
@@ -18,7 +17,8 @@ if (file.exists("data/monit1000_sites.rda") == FALSE) {
            !ecosystem %in% jpndistrict::jpnprefs$prefecture) %>%
     mutate_all(na_if, y = "－") %>%
     readr::type_convert() %>%
-    tibble::as_tibble()
+    tibble::as_tibble() %>%
+    sf::st_as_sf(coords = c("longitude", "latitude"), na.fail = FALSE)
 
   devtools::use_data(monit1000_sites, overwrite = TRUE)
 }
