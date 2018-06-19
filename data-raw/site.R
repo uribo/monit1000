@@ -18,7 +18,7 @@ if (file.exists("data/monit1000_sites.rda") == FALSE) {
     mutate_all(na_if, y = "－") %>%
     readr::type_convert() %>%
     tibble::as_tibble() %>%
-    sf::st_as_sf(coords = c("longitude", "latitude"), na.fail = FALSE)
+    sf::st_as_sf(coords = c("longitude", "latitude"), na.fail = FALSE, crs = 4326)
 
   devtools::use_data(monit1000_sites, overwrite = TRUE)
 }
