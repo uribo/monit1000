@@ -1,4 +1,6 @@
+.env
 .Rproj.user
 .Rhistory
 .RData
 *.pdf
+.DS_Store
