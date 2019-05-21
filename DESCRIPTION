@@ -12,6 +12,7 @@ Suggests:
     devtools (>= 1.13.5),
     dplyr (>= 0.7.5),
     jpndistrict (>= 0.3.2),
+    purrr (>= 0.3.0),
     readr (>= 1.1.1),
     rlang (>= 0.2.1),
     rvest (>= 0.3.2),

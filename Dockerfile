@@ -13,7 +13,8 @@ RUN set -x && \
 RUN set -x && \
   install2.r --error \
     jpndistrict \
-    rvest && \
+    rvest \
+    usethis && \
   installGithub.r \
     uribo/tst && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
