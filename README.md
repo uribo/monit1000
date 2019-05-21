@@ -1,0 +1,24 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# monit1000
+
+The goal of monit1000 is to …
+
+  - データ提供 ()
+      - 各種のデータベースとの連携
+          - JAVIAN
+            <http://www.bird-research.jp/appendix/br07/07r03.html>
+      - 基本はダウンロード。ローカルに保存しない
+  - サイトの情報
+      - 位置関係等のShinyアプリ
+  - 種名検索、項目検索
+  - モニ1000関係の論文情報
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+## basic example code
+```
