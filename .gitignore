@@ -4,3 +4,5 @@
 .RData
 *.pdf
 .DS_Store
+*.xls
+*.xlsx
