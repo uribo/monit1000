@@ -12,9 +12,12 @@ RUN set -x && \
 
 RUN set -x && \
   install2.r --error \
+    here \
     jpndistrict \
+    rnaturalearth \
     rvest \
     usethis && \
   installGithub.r \
+    ropenscilabs/rnaturalearthhires \
     uribo/tst && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
