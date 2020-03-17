@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^\.env$
 ^Dockerfile$
 ^docker-compose\.yml$

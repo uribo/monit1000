@@ -1,5 +1,5 @@
 Package: monit1000
-Title: What the Package Does (one line, title case)
+Title: Load Monitoring Ecosystems Sites in Japan Data as 'tidyverse'
 Version: 0.0.0.9000
 Authors@R: c(person(given = "Shinya", family = "Uryu", 
                                             email = "suika1127@gmail.com", 
@@ -18,10 +18,11 @@ Suggests:
     rlang (>= 0.2.1),
     rvest (>= 0.3.2),
     sf (>= 0.6.4),
-    testthat (>= 2.0.0)
+    testthat (>= 2.0.0),
+    tst
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 6.1.1.9000
 Remotes:
     uribo/tst

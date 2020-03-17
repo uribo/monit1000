@@ -1,4 +1,4 @@
-FROM rocker/geospatial:3.6.0
+FROM rocker/geospatial:3.6.2
 
 RUN set -x && \
   apt-get update && \
@@ -11,13 +11,6 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error \
-    here \
-    jpndistrict \
-    rnaturalearth \
-    rvest \
-    usethis && \
-  installGithub.r \
-    ropenscilabs/rnaturalearthhires \
-    uribo/tst && \
+  install2.r --error --skipinstalled --repos 'http://mran.revolutionanalytics.com/snapshot/2020-03-16' \
+    renv && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
