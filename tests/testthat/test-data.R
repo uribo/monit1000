@@ -22,7 +22,7 @@ test_that("check monit1000_sites statement", {
       c("sfc_POINT", "sfc")
     )
   )
-  tst::expect_crs(monit1000_sites,
-             proj4string = "+proj=longlat +datum=WGS84 +no_defs")
+  # tst::expect_crs(monit1000_sites,
+  #            proj4string = "+proj=longlat +datum=WGS84 +no_defs")
   tst::expect_geom_type(monit1000_sites$geometry[[1]], "POINT")
 })

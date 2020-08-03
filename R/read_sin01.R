@@ -27,39 +27,24 @@ read_sin01 <- function(path, tidy = TRUE) {
       tidyr::pivot_wider(
         names_from = "type",
         values_from = "value") %>%
-      readr::type_convert(
-        col_types = readr::cols(
-          mesh_xcord = "c",
-          mesh_ycord = "c",
-          tag_no = "c",
-          indv_no = "c",
-          stem_xcord = "d",
-          stem_ycord = "d",
-          spc_japan = "c",
-          # stem_id,indv_id,
-          year = "c",
-          gbh = "d",
-          note = "c",
-          s_date = readr::col_date(format = "%Y%m%d"),
-          dl = "i",
-          rec = "i",
-          error = "i")) %>%
-      dplyr::select(tidyselect::starts_with("mesh_"),
+      dplyr::mutate(dplyr::across(tidyselect:::where(is.character),
+                                  .fns = dplyr::na_if,
+                                  y = "na"))
+
+      d <-
+        d %>%
+        dplyr::select(tidyselect::starts_with("mesh_"),
                     "tag_no",
                     "indv_no",
                     tidyselect::starts_with("stem_"),
                     "spc_japan",
-                    "stem_id",
-                    "indv_id",
                     "year",
                     "gbh",
                     "note",
                     "s_date",
-                    "dl",
-                    "rec",
-                    "error",
-                    tidyselect::everything())
-  } else {
+                    tidyselect::everything()) %>%
+      readr::type_convert()
+    } else {
     d <-
       readr::read_csv(path,
                       comment = "#")
