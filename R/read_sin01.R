@@ -12,10 +12,12 @@
 #' @export
 read_sin01 <- function(path, tidy = TRUE) {
   if (tidy == TRUE) {
+    skip_n <-
+      max(stringr::str_which(readr::read_lines(path, n_max = 400), '^(#|"#)'))
     d <-
       suppressMessages(
         readr::read_csv(path,
-                        comment = "#",
+                        skip = skip_n,
                         col_types = readr::cols(.default = readr::col_character())))
     d <-
       d %>%
@@ -30,7 +32,16 @@ read_sin01 <- function(path, tidy = TRUE) {
       dplyr::mutate(dplyr::across(tidyselect:::where(is.character),
                                   .fns = dplyr::na_if,
                                   y = "na"))
-
+    list_var <-
+      d %>%
+      purrr::map_chr(class) %>%
+      purrr::keep(~ .x == "list") %>%
+      names()
+    if (length(list_var) >= 1) {
+      d <-
+        d %>%
+        tidyr::unnest(cols = tidyselect::all_of(list_var))
+    }
       d <-
         d %>%
         dplyr::select(tidyselect::starts_with("mesh_"),
